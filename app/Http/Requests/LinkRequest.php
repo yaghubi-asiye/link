@@ -24,7 +24,8 @@ class LinkRequest extends FormRequest
     public function rules()
     {
         return [
-            'main_link' => 'required|string'
+            'main_link' => 'required|string',
+            'user_id' => 'required|integer',
         ];
     }
 }

@@ -19,10 +19,11 @@ class LinkRepository
     {
         return Link::query()->create($data);
     }
-    public function getByNumberOfView($col, $value, $limit = 15)
-    {
-        return Link::where($col, $value)->limit($limit)->get();
-    }
 
+    public function update( array $data)
+    {
+        return Link::where('id', $data['id'])
+            ->update(['view_number' => $data['view_number']]);
+    }
 
 }

@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
 
-//Route::group()->
-Route::get('links/index', [LinkController::class, 'index']);
-Route::post('links/store', [LinkController::class, 'store']);
+Route::controller(LinkController::class)->group(function() {
+    Route::get('links/index', 'index');
+    Route::post('links/store', 'store');
+    Route::get('links/getByNumberOfView/{id}', 'getByNumberOfView');
+    Route::get('links/clickLink/{linkId}', 'clickLink');
+});
